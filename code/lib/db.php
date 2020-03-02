@@ -97,9 +97,9 @@ function authenticate_user($dbconn, $username, $password) {
 		FROM
 		authors
 		WHERE
-		username='".$_POST['username']."'
+		username='".pg_escape_string($_POST['username'])."'
 		AND
-		password='".$_POST['password']."'
+		password='".pg_escape_string($_POST['password'])."'
 		LIMIT 1";
 	return run_query($dbconn, $query);
 }	
